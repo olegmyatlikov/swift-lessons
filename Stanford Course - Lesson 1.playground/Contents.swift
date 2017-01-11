@@ -1,5 +1,7 @@
 import Foundation // для sin и M_PI
 
+/*
+
 // Lessson 1 Task 1
 
 func findSevenInCollection (a: Int, b: Int, n: Int) {
@@ -156,12 +158,39 @@ func functionResultG (x: Double) {
 
 functionResultG (x: 0.3)
 
+*/
 
 
+//// Циклы
+
+// Lessson 1 Task 6
+
+func greatestСommoтFactor (a: Int, b: Int) -> Int {
+    
+    var firstNum = a
+    var secondNum = b
+    
+    while firstNum != secondNum {
+        if firstNum > secondNum {
+            firstNum = firstNum - secondNum
+        } else {
+            secondNum = secondNum - firstNum
+        }
+    }
+    
+    return firstNum
+    
+}
 
 
+func fractionReduction (numerator: Int, denominator: Int) {
+    
+    let nod: Int = greatestСommoтFactor(a: numerator, b: denominator)
+    
+    print("\(numerator)/\(denominator) = \(numerator/nod)/\(denominator/nod)")
+}
 
-
+fractionReduction(numerator: 45, denominator: 2205)
 
 
 
