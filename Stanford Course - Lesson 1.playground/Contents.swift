@@ -158,12 +158,12 @@ func functionResultG (x: Double) {
 
 functionResultG (x: 0.3)
 
-*/
 
 
-//// Циклы
 
-// Lessson 1 Task 6
+//// ЦИКЛЫ
+
+// Lessson 1 Task 7
 
 func greatestСommoтFactor (a: Int, b: Int) -> Int {
     
@@ -191,6 +191,134 @@ func fractionReduction (numerator: Int, denominator: Int) {
 }
 
 fractionReduction(numerator: 45, denominator: 2205)
+
+
+
+// Lessson 1 Task 8
+
+func findNumberSumCube() {
+    
+    var array = [Int]()
+    var resultSum: Int
+    
+    for i: Int in 100...999 {
+        resultSum = 0
+        let a: Int = i / 100
+        let b: Int = (i - (a*100)) / 10
+        let с: Int = i - (a*100) - (b*10)
+        resultSum = resultSum + (a * a * a) + (b * b * b) + (с * с * с)
+        //array.append(resultSum)
+        if resultSum == i {
+            array.append(i)
+        }
+        
+    }
+    
+    print(array)
+    
+}
+
+findNumberSumCube()
+
+
+
+// Lessson 1 Task 9
+
+func findKNumInN (n: Int, k: Int) {
+    
+    
+    var arrayN = [Character]()
+    var arrayRevertN = [Character]()
+    
+    for i in String(n).characters {
+        arrayN.append(i)
+    }
+    
+    for i in 1...arrayN.count {
+        arrayRevertN.append(arrayN[arrayN.count - i])
+    }
+    
+    if k > arrayRevertN.count || k <= 0 {
+        print("Ошибка! В исходном числе нету \(k)-ой цифры слева")
+    } else {
+        print(arrayRevertN[k-1])
+    }
+    
+    
+}
+
+findKNumInN(n: 21734, k: 3)
+
+
+
+// Lessson 1 Task 10
+
+
+func numInFibonacci (k: Int) {
+    
+    var arrayFibonacci = [0, 1] // start by 0
+    
+    if k > 0 {
+        for i in 2...k {
+            arrayFibonacci.append(arrayFibonacci[i-1] + arrayFibonacci[i-2])
+        }
+        print("\(k)-е число Фибоначи  '\(arrayFibonacci[k-1])'")
+    } else {
+        print("Введите положительное число")
+    }
+    
+    
+    
+}
+
+numInFibonacci(k: 3)
+*/
+
+
+
+//// МАССИВЫ
+
+// Lessson 1 Task 11
+
+func findSimpleNumber (n: Int) {
+    
+    var randomNumbersArray = [Int]()
+    var simple = true
+    
+    for i in 0..<n {
+        randomNumbersArray.append(Int(arc4random() % 100))
+        
+        if randomNumbersArray[i] % 2 != 0 {
+            
+            var half = Int(randomNumbersArray[i] / 2) + 1
+            
+            for j in 3...half {
+                
+                if randomNumbersArray[i] % j == 0 {
+                    simple = false
+                    break
+                }
+                
+                
+            }
+            
+            if simple == true {
+                print("\(randomNumbersArray[i]) - простое число")
+            }
+            
+            simple = false
+
+        }
+    }
+    
+    print(randomNumbersArray)
+    
+}
+
+findSimpleNumber(n: 10)
+
+
+
 
 
 
