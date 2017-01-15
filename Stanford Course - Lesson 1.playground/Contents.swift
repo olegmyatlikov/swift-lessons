@@ -1,8 +1,13 @@
 import Foundation // для sin и M_PI
 
-/*
+/* 
 
-// Lessson 1 Task 1
+////////// Lessson 1 Task 1
+ 
+/* Написатьфункцию,котораявыводитнаэкранвсенатуральныечислаиз диапазона от А до В в записи которых цифра 7 встречается N раз.
+При отсутствии чисел с указанными свойствами выдать на экран сообщение "Требуемых чисел нет".
+Границы диапазона А и В и значение N задаются как параметры функции.  Объекты типа String можно рассматривать и как массивы символов. */
+
 
 func findSevenInCollection (a: Int, b: Int, n: Int) {
     
@@ -36,7 +41,12 @@ func findSevenInCollection (a: Int, b: Int, n: Int) {
 findSevenInCollection(a: 500, b: 800, n: 2)
 
 
-// Lessson 1 Task 2
+ 
+////////// Lessson 1 Task 2
+ 
+/* Написатьфункцию,принимающуюнатуральноетрехзначноечисло.  Вычислить и вывести на экран число, полученное путем "переворота" (123 => 321).
+Не использовать методы для работы со строками. */
+ 
 
 func revertNumbers (number: Int) {
     
@@ -61,7 +71,11 @@ revertNumbers(number: 123)
 
 
 
-// Lessson 1 Task 3
+////////// Lessson 1 Task 3
+ 
+/* Написатьфункцию,котораяпринимаетчетырехзначноедесятичноечисло, формирует и выводит на экран признак "счастливого числа" (сумма первых двух цифр равне сумме последних двух).
+Не использовать методы для работы со строками. */
+ 
 
 func happyNumber (number: Int) {
 
@@ -88,7 +102,10 @@ happyNumber(number: 6006)
 
 
 
-// Lessson 1 Task 4
+////////// Lessson 1 Task 4
+ 
+/* Реализоватьметодвычисленияфакториала. */
+ 
 
 func factorial(number: Int) {
     
@@ -110,7 +127,15 @@ factorial(number: 0)
 
 
 
-// Lessson 1 Task 5
+////////// Lessson 1 Task 5
+ 
+/* ВычислитьзначениефункцииY=F(X),заданнойграфиком
+      |0.5 при X<=-0.5
+      | X+1 при -0.5<X<=0
+ Y = <
+      | X*X-1при 0<X<=1
+      | X-1 при X>1 */
+ 
 
 func functionResultY (x: Float) {
     
@@ -137,7 +162,14 @@ functionResultY (x: 1)
 
 
 
-// Lessson 1 Task 6
+////////// Lessson 1 Task 6
+ 
+/* ВычислитьзначениефункцииG=F(X),заданнойграфиком
+      | sin(π/2), если X<=0.5
+ G = <
+      | sin((X-1)*π/2), если X>0.5
+ π — представлена в виде глобальной константы M_PI  sin — глобальная функция */
+ 
 
 func functionResultG (x: Double) {
 
@@ -161,10 +193,15 @@ functionResultG (x: 0.3)
 
 
 
-//// ЦИКЛЫ
+//--- ЦИКЛЫ
 
-// Lessson 1 Task 7
+////////// Lessson 1 Task 7
+ 
+/* Написатьфункциюдлясокращенияобыкновеннойдроби.
+Дробь передается в виде числителя и знаменателя двумя отдельными целочисленными параметрами.
+Как вспомогательную функцию определить и использовать метод для вычисления наибольшего общего делителя двух целых чисел. */
 
+ 
 func greatestСommoтFactor (a: Int, b: Int) -> Int {
     
     var firstNum = a
@@ -194,7 +231,10 @@ fractionReduction(numerator: 45, denominator: 2205)
 
 
 
-// Lessson 1 Task 8
+////////// Lessson 1 Task 8
+ 
+/* Написатьфункцию,котораянаходитираспечатываетвсенатуральные трехзначные числа, равные сумме кубов своих цифр. */
+ 
 
 func findNumberSumCube() {
     
@@ -222,7 +262,10 @@ findNumberSumCube()
 
 
 
-// Lessson 1 Task 9
+////////// Lessson 1 Task 9
+
+/* Написатьфункцию,принимающуюнатуральныечислаnиk.  Задача функции: определить k-ю справа цифру числа n. */
+ 
 
 func findKNumInN (n: Int, k: Int) {
     
@@ -251,7 +294,9 @@ findKNumInN(n: 21734, k: 3)
 
 
 
-// Lessson 1 Task 10
+////////// Lessson 1 Task 10
+ 
+/* Написать функцию, вычисляющую k-ое число Фибоначчи. */
 
 
 func numInFibonacci (k: Int) {
@@ -272,43 +317,55 @@ func numInFibonacci (k: Int) {
 }
 
 numInFibonacci(k: 3)
-*/
+ 
 
 
 
-//// МАССИВЫ
 
-// Lessson 1 Task 11
+//--- МАССИВЫ
+
+////////// Lessson 1 Task 11
+
+/* Написать функцию, принимающую натуральное число N.
+ Одномерный массив размером N заполнить случайными числами.   Вывести на экран количество простых чисел в массиве (Для удобства проверки дополнительно вывести сгенерированный массив).
+ Для генерации простого числа можно использовать глобальную функцию arc4random(). Следует обратить внимание, что функция возвращает значение типа UInt32 (потребуется преобразование), а также работает на всем диапазоне (можно применить arc4random() % 100 для получения чисел в промежутке [0, 100) ) */
+
 
 func findSimpleNumber (n: Int) {
     
     var randomNumbersArray = [Int]()
-    var simple = true
+    
     
     for i in 0..<n {
-        randomNumbersArray.append(Int(arc4random() % 100))
         
-        if randomNumbersArray[i] % 2 != 0 {
+        randomNumbersArray.append(Int(arc4random() % 100)) // проверял числа на "простое - или нет" сразу после добавление в массив, не дожидаясь формирования всего массива
+        
+        if randomNumbersArray[i] % 2 != 0 && randomNumbersArray[i] > 2 { // 2 - единственное четное простое число, пришлось его вынести в отдельный if
             
-            var half = Int(randomNumbersArray[i] / 2) + 1
+            let half = Int(randomNumbersArray[i] / 2) + 1
+            var simple = true
             
-            for j in 3...half {
-                
-                if randomNumbersArray[i] % j == 0 {
-                    simple = false
-                    break
+
+                for j in 2...half { // вообще, как я позже прочитал, можно было проверять до округленного корня числа, но проверять до половины была моя идея и я решил оставить :)
+                                    // также можно было не проверять четные числа, но как говлорил Alex Skutorenko, нужно заставить программу работать, а потом уже заниматься оптимизацией
+                    if randomNumbersArray[i] % j == 0 {
+                        simple = false
+                        break
+                    }
+                    
                 }
                 
-                
-            }
+                if simple == true {
+                    print("\(randomNumbersArray[i]) - простое число")
+                }
             
-            if simple == true {
-                print("\(randomNumbersArray[i]) - простое число")
-            }
             
             simple = false
 
+        } else if randomNumbersArray[i] == 2 {
+            print("\(randomNumbersArray[i]) - простое число")
         }
+        
     }
     
     print(randomNumbersArray)
@@ -316,13 +373,51 @@ func findSimpleNumber (n: Int) {
 }
 
 findSimpleNumber(n: 10)
+ 
 
 
 
+////////// Lessson 1 Task 12
+
+/* Написать функцию, заполняющую случайными числами целочисленный массив длиной N. Найти в нем два наименьших элемента (и вывести на экран) */
+
+func findTwoMin (n: Int) {
+    
+    var randomNumbersArray = [Int]()
+    var min1: Int
+    var min2: Int
+    
+    for _ in 0..<n {
+        randomNumbersArray.append(Int(arc4random() % 100))
+    }
+    
+    min1 = randomNumbersArray[0]
+    min2 = min1
+    
+    for i in randomNumbersArray {
+        if i < min1 {
+            min2 = min1
+            min1 = i
+        }
+    }
+    
+    print(randomNumbersArray)
+    print("Минимальные числа массива - \(min1) и \(min2)")
+    
+}
+
+findTwoMin(n: 10)
+
+ */
 
 
 
+////////// Lessson 1 Task 13
 
+/* Сгенерировать (и вывести) двумерную матрицу размером N*N (N<20). Найти сумму ее элементов, находящихся на диагонали, и сумму элементов на диагонали, "ортогональной" главной. */
+
+
+arc4random
 
 
 
