@@ -1,10 +1,10 @@
 import Foundation // для sin и M_PI
 
-/* 
+/*
 
 ////////// Lessson 1 Task 1
  
-/* Написатьфункцию,котораявыводитнаэкранвсенатуральныечислаиз диапазона от А до В в записи которых цифра 7 встречается N раз.
+/* Написать функцию,которая выводит на экран все натуральные числаиз диапазона от А до В в записи которых цифра 7 встречается N раз.
 При отсутствии чисел с указанными свойствами выдать на экран сообщение "Требуемых чисел нет".
 Границы диапазона А и В и значение N задаются как параметры функции.  Объекты типа String можно рассматривать и как массивы символов. */
 
@@ -44,7 +44,7 @@ findSevenInCollection(a: 500, b: 800, n: 2)
  
 ////////// Lessson 1 Task 2
  
-/* Написатьфункцию,принимающуюнатуральноетрехзначноечисло.  Вычислить и вывести на экран число, полученное путем "переворота" (123 => 321).
+/* Написать функцию, принимающую натуральное трехзначное число.  Вычислить и вывести на экран число, полученное путем "переворота" (123 => 321).
 Не использовать методы для работы со строками. */
  
 
@@ -73,7 +73,7 @@ revertNumbers(number: 123)
 
 ////////// Lessson 1 Task 3
  
-/* Написатьфункцию,котораяпринимаетчетырехзначноедесятичноечисло, формирует и выводит на экран признак "счастливого числа" (сумма первых двух цифр равне сумме последних двух).
+/* Написать функцию,которая принимает четырехзначное десятичное число, формирует и выводит на экран признак "счастливого числа" (сумма первых двух цифр равне сумме последних двух).
 Не использовать методы для работы со строками. */
  
 
@@ -104,7 +104,7 @@ happyNumber(number: 6006)
 
 ////////// Lessson 1 Task 4
  
-/* Реализоватьметодвычисленияфакториала. */
+/* Реализовать метод вычисления факториала. */
  
 
 func factorial(number: Int) {
@@ -129,7 +129,7 @@ factorial(number: 0)
 
 ////////// Lessson 1 Task 5
  
-/* ВычислитьзначениефункцииY=F(X),заданнойграфиком
+/* Вычислить значение функции Y=F(X),заданной графиком
       |0.5 при X<=-0.5
       | X+1 при -0.5<X<=0
  Y = <
@@ -164,7 +164,7 @@ functionResultY (x: 1)
 
 ////////// Lessson 1 Task 6
  
-/* ВычислитьзначениефункцииG=F(X),заданнойграфиком
+/* Вычислить значение функции G=F(X),заданной графиком
       | sin(π/2), если X<=0.5
  G = <
       | sin((X-1)*π/2), если X>0.5
@@ -197,43 +197,40 @@ functionResultG (x: 0.3)
 
 ////////// Lessson 1 Task 7
  
-/* Написатьфункциюдлясокращенияобыкновеннойдроби.
+/* Написать функцию для сокращения обыкновенной дроби.
 Дробь передается в виде числителя и знаменателя двумя отдельными целочисленными параметрами.
 Как вспомогательную функцию определить и использовать метод для вычисления наибольшего общего делителя двух целых чисел. */
 
  
-func greatestСommoтFactor (a: Int, b: Int) -> Int {
-    
-    var firstNum = a
-    var secondNum = b
-    
-    while firstNum != secondNum {
-        if firstNum > secondNum {
-            firstNum = firstNum - secondNum
-        } else {
-            secondNum = secondNum - firstNum
-        }
-    }
-    
-    return firstNum
-    
-}
-
-
-func fractionReduction (numerator: Int, denominator: Int) {
-    
-    let nod: Int = greatestСommoтFactor(a: numerator, b: denominator)
-    
-    print("\(numerator)/\(denominator) = \(numerator/nod)/\(denominator/nod)")
-}
-
-fractionReduction(numerator: 45, denominator: 2205)
+ func greatestСommonFactor (a: Int, b: Int) -> Int {
+ 
+ let min = a < b ? a : b
+ var maxCommonFactor = 1
+ 
+ for i in 1...min {
+ if (a % i) == 0 && (b % i) == 0 {
+ maxCommonFactor = i
+ }
+ }
+ 
+ return maxCommonFactor
+ 
+ }
+ 
+ func fractionReduction (numerator: Int, denominator: Int) {
+ 
+ let nod: Int = greatestСommonFactor(a: numerator, b: denominator)
+ 
+ print("\(numerator)/\(denominator) = \(numerator/nod)/\(denominator/nod)")
+ }
+ 
+ fractionReduction(numerator: 27, denominator: 81)
 
 
 
 ////////// Lessson 1 Task 8
  
-/* Написатьфункцию,котораянаходитираспечатываетвсенатуральные трехзначные числа, равные сумме кубов своих цифр. */
+/* Написать функцию, которая находит и распечатывает все натуральные трехзначные числа, равные сумме кубов своих цифр. */
  
 
 func findNumberSumCube() {
@@ -264,7 +261,7 @@ findNumberSumCube()
 
 ////////// Lessson 1 Task 9
 
-/* Написатьфункцию,принимающуюнатуральныечислаnиk.  Задача функции: определить k-ю справа цифру числа n. */
+/* Написать функцию, принимающую натуральные числа n и k.  Задача функции: определить k-ю справа цифру числа n. */
  
 
 func findKNumInN (n: Int, k: Int) {
@@ -408,16 +405,94 @@ func findTwoMin (n: Int) {
 
 findTwoMin(n: 10)
 
- */
 
+ 
 
 
 ////////// Lessson 1 Task 13
 
 /* Сгенерировать (и вывести) двумерную матрицу размером N*N (N<20). Найти сумму ее элементов, находящихся на диагонали, и сумму элементов на диагонали, "ортогональной" главной. */
 
+ 
+ func matrixCalc (n: Int) {
+ 
+ if n < 20 {
+ 
+ var dioganal = 0
+ var inverse = 0
+ var line = [Int]()
+ var matrix = [Array<Int>]()
+ 
+ for _ in 0..<n {
+ 
+ for _ in 0..<n {
+ line += [Int(arc4random()) % 100]
+ }
+ 
+ matrix += [line]
+ print(line)
+ line.removeAll()
+ 
+ }
+ 
+ 
+ for i in 0..<n {
+ dioganal += matrix[i][i]
+ inverse += matrix[(n-1)-i][i]
+ }
+ 
+ print("Сумма главной диогонали = \(dioganal)")
+ print("Сумма ортогональной диогонали = \(inverse)")
+ 
+ } else {
+ print ("n должно быть < 20")
+ }
+ 
+ 
+ }
+ 
+ matrixCalc (n: 5)
+ 
+ 
+ 
 
-arc4random
+////////// Lessson 1 Task 15
+
+/* Найти наибольший общий делитель (НОД) двух введенных натуральных чисел, используя алгоритм Евклида. Алгоритм Евклида: вычитаем из большего числа меньшее до тех пор, пока они не сравняются; полученное в результате число и есть НОД. */
+
+
+func greatestСommonFactorByEuclide (a: Int, b: Int) {
+    
+    var firstNum = a
+    var secondNum = b
+    
+    while firstNum != secondNum {
+        if firstNum > secondNum {
+            firstNum = firstNum - secondNum
+        } else {
+            secondNum = secondNum - firstNum
+        }
+    }
+    
+    print("Наибольший общий делитель чисел \(a) и \(b) = \(firstNum)")
+    
+}
+
+
+greatestСommonFactorByEuclide(a: 75, b: 2205)
+ 
+
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
